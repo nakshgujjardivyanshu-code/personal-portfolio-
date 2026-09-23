@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Divyanshu Chauhan — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    box-sizing:border-box;
+    --bg:#0E1512;
+    --surface:#161F1B;
+    --surface-2:#1C2620;
+    --line:#2A362F;
+    --text:#EDEAE1;
+    --muted:#8FA097;
+    --gold:#C9A45C;
+    --green:#5C8A6E;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  html{scroll-padding-top:env(safe-area-inset-top,0px); height:100%;}
+  *,*::before,*::after{box-sizing:inherit;}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:'Inter',system-ui,sans-serif;
+    line-height:1.6;
+    min-height:100%;
+  }
+  h1,h2,h3{font-family:'Lora',Georgia,serif; margin:0; font-weight:600;}
+  a{color:var(--gold); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
+  header{
+    position:sticky; top:0; padding-top:env(safe-area-inset-top,0px);
+    background:rgba(14,21,18,0.92); backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line); z-index:10;
+  }
+  nav.wrap{display:flex; align-items:center; justify-content:space-between; padding:14px 24px; gap:12px; flex-wrap:wrap;}
+  .brand{font-family:'Lora',serif; font-size:1.05rem; letter-spacing:0.02em;}
+  .brand em{font-style:italic; color:var(--gold);}
+  .navlinks{display:flex; gap:20px; font-size:0.92rem; flex-wrap:wrap;}
+  .navlinks a{color:var(--muted);}
+  .navlinks a:hover{color:var(--text); text-decoration:none;}
+
+  section{padding:64px 0; border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .kicker{color:var(--gold); font-size:0.85rem; margin-bottom:10px;}
+  h2{font-size:1.6rem; margin-bottom:28px;}
+
+  .hero{padding-top:72px; padding-bottom:72px;}
+  .hero h1{font-size:2.4rem; line-height:1.2; max-width:14ch;}
+  .hero .role{color:var(--gold); font-style:italic; font-size:1.15rem; margin-top:10px; font-family:'Lora',serif;}
+  .hero p.lead{max-width:56ch; color:var(--muted); margin-top:18px; font-size:1.02rem;}
+  .cta-row{margin-top:28px; display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    display:inline-block; padding:11px 20px; border-radius:2px;
+    border:1px solid var(--gold); color:var(--gold); font-size:0.92rem;
+  }
+  .btn:hover{background:var(--gold); color:var(--bg); text-decoration:none;}
+  .btn.ghost{border-color:var(--line); color:var(--muted);}
+  .btn.ghost:hover{border-color:var(--muted); color:var(--text); background:none;}
+
+  .ledger{border-left:2px solid var(--line); padding-left:22px; margin-left:4px;}
+  .entry{position:relative; padding-bottom:30px;}
+  .entry:last-child{padding-bottom:0;}
+  .entry::before{
+    content:""; position:absolute; left:-27px; top:6px;
+    width:10px; height:10px; border-radius:50%; background:var(--gold);
+  }
+  .entry .when{color:var(--muted); font-size:0.85rem;}
+  .entry h3{font-size:1.1rem; margin-top:4px;}
+  .entry .place{color:var(--muted); font-size:0.95rem; margin-top:2px;}
+
+  .skills-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .skill{
+    background:var(--surface); border:1px solid var(--line);
+    padding:18px; border-radius:2px;
+  }
+  .skill h3{font-size:1rem; font-weight:600; font-family:'Inter';}
+  .skill p{color:var(--muted); font-size:0.88rem; margin:6px 0 0;}
+
+  .project{
+    background:var(--surface); border:1px solid var(--line);
+    padding:24px; border-radius:2px; margin-bottom:16px;
+  }
+  .project h3{font-size:1.15rem;}
+  .project .tag{color:var(--green); font-size:0.8rem; margin-top:2px;}
+  .project p{color:var(--muted); margin-top:10px;}
+
+  .achieve-list{list-style:none; padding:0; margin:0;}
+  .achieve-list li{
+    display:flex; gap:14px; padding:14px 0; border-bottom:1px solid var(--line);
+  }
+  .achieve-list li:last-child{border-bottom:none;}
+  .achieve-list .mark{color:var(--gold);}
+  .achieve-list .body h3{font-size:1rem;}
+  .achieve-list .body p{color:var(--muted); font-size:0.88rem; margin:4px 0 0;}
+
+  .contact-card{
+    background:var(--surface); border:1px solid var(--line);
+    padding:28px; border-radius:2px;
+  }
+  .contact-row{display:flex; justify-content:space-between; align-items:center; padding:14px 0; border-bottom:1px solid var(--line); flex-wrap:wrap; gap:6px;}
+  .contact-row:last-child{border-bottom:none;}
+  .contact-row .label{color:var(--muted); font-size:0.88rem;}
+  .contact-row .val{font-size:0.98rem;}
+
+  footer{padding:28px 0; text-align:center; color:var(--muted); font-size:0.85rem;}
+
+  @media(max-width:640px){
+    .hero h1{font-size:1.9rem;}
+    .skills-grid{grid-template-columns:1fr;}
+    .navlinks{gap:14px; font-size:0.85rem;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="brand">Divyanshu <em>Chauhan</em></div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero wrap" id="about">
+  <div class="kicker">Portfolio</div>
+  <h1>Divyanshu Chauhan</h1>
+  <div class="role">Aspiring Finance Professional</div>
+  <p class="lead">I'm a BBA student specialising in Banking &amp; Finance, currently in my 2nd year. I'm working toward a career in finance, and I like combining analytical thinking with practical, hands-on tools — from spreadsheets to AI-driven experiments.</p>
+  <div class="cta-row">
+    <a class="btn" href="#contact">Get in touch</a>
+    <a class="btn ghost" href="#projects">See my work</a>
+  </div>
+</section>
+
+<section class="wrap" id="education">
+  <div class="kicker">Background</div>
+  <h2>Education</h2>
+  <div class="ledger">
+    <div class="entry">
+      <div class="when">2023 – Present</div>
+      <h3>BBA, Banking &amp; Finance</h3>
+      <div class="place">Geeta University, Panipat — 2nd Year, 3rd Semester</div>
+    </div>
+    <div class="entry">
+      <div class="when">Completed 2025</div>
+      <h3>12th Grade</h3>
+      <div class="place">St. R.C. Scientific Convent School, Kairana</div>
+    </div>
+    <div class="entry">
+      <div class="when">Completed 2023</div>
+      <h3>10th Grade</h3>
+      <div class="place">St. R.C. Scientific Convent School, Kairana</div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="skills">
+  <div class="kicker">Capabilities</div>
+  <h2>Skills</h2>
+  <div class="skills-grid">
+    <div class="skill">
+      <h3>Analytics</h3>
+      <p>Reading data and drawing practical conclusions from it.</p>
+    </div>
+    <div class="skill">
+      <h3>Communication</h3>
+      <p>Explaining ideas clearly to different kinds of audiences.</p>
+    </div>
+    <div class="skill">
+      <h3>Problem Solving</h3>
+      <p>Breaking down a problem and working through it methodically.</p>
+    </div>
+    <div class="skill">
+      <h3>Negotiation</h3>
+      <p>Finding common ground and working toward fair outcomes.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="projects">
+  <div class="kicker">Selected Work</div>
+  <h2>Projects</h2>
+  <div class="project">
+    <h3>Project Roxly</h3>
+    <div class="tag">AI Tool</div>
+    <p>An AI tool designed to work both with an internet connection and offline, so it stays usable even without a stable connection.</p>
+  </div>
+</section>
+
+<section class="wrap" id="achievements">
+  <div class="kicker">Recognition</div>
+  <h2>Certifications &amp; Achievements</h2>
+  <ul class="achieve-list">
+    <li>
+      <span class="mark">✓</span>
+      <div class="body">
+        <h3>Internship — Bajaj Capital</h3>
+        <p>Completed an internship gaining exposure to the finance and capital markets industry.</p>
+      </div>
+    </li>
+    <li>
+      <span class="mark">✓</span>
+      <div class="body">
+        <h3>Advanced Excel</h3>
+        <p>Proficient in advanced Excel functions for data analysis and reporting.</p>
+      </div>
+    </li>
+    <li>
+      <span class="mark">✓</span>
+      <div class="body">
+        <h3>PowerPoint &amp; Word</h3>
+        <p>Skilled in creating professional presentations and documents.</p>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<section class="wrap" id="contact">
+  <div class="kicker">Reach Out</div>
+  <h2>Contact</h2>
+  <div class="contact-card">
+    <div class="contact-row">
+      <span class="label">Email</span>
+      <span class="val"><a href="mailto:nakshgujjardivyanshu@gmail.com">nakshgujjardivyanshu@gmail.com</a></span>
+    </div>
+    <div class="contact-row">
+      <span class="label">LinkedIn</span>
+      <span class="val"><a href="https://www.linkedin.com/in/divyanshu-chauhan-a29778346" target="_blank" rel="noopener">linkedin.com/in/divyanshu-chauhan</a></span>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  © 2026 Divyanshu Chauhan
+</footer>
+
+</body>
+</html>
